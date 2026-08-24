@@ -51,7 +51,7 @@ public:
         cin >> age;
 
         cout << "ENTER THE DATE OF BIRTH OF THE (DD-MM-YYYY) OF THE STUDENT: ";
-        cin.ignore();// USE THIS WHEN EVER IT'S NEXT TO NON STRING
+        cin.ignore();
         getline(cin, dob);
 
         cout << "ENTER THE SEMESTER: ";
@@ -63,7 +63,7 @@ public:
 
     void saveToFile(fstream &file) 
     {
-         cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
+         file << usn << "  " <<name << "      " << dep << "        " << age << "  "<< dob << "   " << sem << "   " << CGPA << "\n";
     }
 };
 
