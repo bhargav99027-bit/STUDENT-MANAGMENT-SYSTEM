@@ -59,6 +59,17 @@ public:
 int main() 
 {
     vector<Student> s;
-    
+    cout<<"--------------------------------------------------------------------------------------------"<<endl;
+    cout<<"===============================STUDENT MANAGMENT SYSTEM====================================="<<endl;
+    cout<<"--------------------------------------------------------------------------------------------"<<endl;
+    cout<<"1--> ADD STUDENT"<<endl;
+    cout<<"2--> DISPLAY STUDENTS"<<endl;
+    cout<<"3--> SEARCHING STUDENT"<<endl;
+    cout<<"4--> UPDATE STUDENT"<<endl;
+    cout<<"5--> DELETE STUDENT"<<endl;
+    cout<<"6--> SAVE STUDENT DATA"<<endl;
+    cout<<"7--> LOAD STUDENT DATA"<<endl;
+    cout<<"8--> DISPLAY MENU AGAIN"<<endl;
+    cout<<"0--> EXIT"<<endl;
 }
 
