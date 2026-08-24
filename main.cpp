@@ -4,16 +4,6 @@
 #include <vector>
 using namespace std;
 
-void load_student()
-{
-    cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
-}
-
-void save_student()
-{
-     cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
-}
-
 void delete_student()
 {
      cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
@@ -47,7 +37,28 @@ private:
 public:
     void getInfo() 
     {
-        cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
+        cout << "ENTER THE USN OF THE STUDENT: ";
+        cin.ignore();
+        getline(cin, usn);
+
+        cout << "ENTER THE NAME OF THE STUDENT: ";
+        getline(cin, name);
+
+        cout << "ENTER THE DEPARTMENT OF THE STUDENT: ";
+        getline(cin, dep);
+
+        cout << "ENTER THE AGE OF STUDENT: ";
+        cin >> age;
+
+        cout << "ENTER THE DATE OF BIRTH OF THE (DD-MM-YYYY) OF THE STUDENT: ";
+        cin.ignore();// USE THIS WHEN EVER IT'S NEXT TO NON STRING
+        getline(cin, dob);
+
+        cout << "ENTER THE SEMESTER: ";
+        cin >> sem;
+
+        cout << "ENTER THE CGPA OF STUDENT: ";
+        cin >> CGPA;
     }
 
     void saveToFile(fstream &file) 
@@ -58,7 +69,6 @@ public:
 
 int main() 
 {
-    vector<Student> s;
     cout<<"--------------------------------------------------------------------------------------------"<<endl;
     cout<<"===============================STUDENT MANAGMENT SYSTEM====================================="<<endl;
     cout<<"--------------------------------------------------------------------------------------------"<<endl;
@@ -67,9 +77,7 @@ int main()
     cout<<"3--> SEARCHING STUDENT"<<endl;
     cout<<"4--> UPDATE STUDENT"<<endl;
     cout<<"5--> DELETE STUDENT"<<endl;
-    cout<<"6--> SAVE STUDENT DATA"<<endl;
-    cout<<"7--> LOAD STUDENT DATA"<<endl;
-    cout<<"8--> DISPLAY MENU AGAIN"<<endl;
+    cout<<"6--> DISPLAY MENU AGAIN"<<endl;
     cout<<"0--> EXIT"<<endl;
      while(1)
     {
@@ -79,11 +87,11 @@ int main()
     cin>>ch;
     switch (ch)
     {
+
     case 1:
     {
         Student student1;
         student1.getInfo();
-        s.push_back(student1);
 
         fstream file("document.txt", ios::out | ios::app);
         if (file.is_open()) 
@@ -98,37 +106,32 @@ int main()
         file.close();
         break;
     }
+
     case 2:
     {
        display_students();
        break;
     }
+
     case 3:
     {
         search_student();
         break;
     }
+
     case 4:
     {
         update_student();
         break;
     }
+
     case 5:
     {
         delete_student();
         break;
     }
+    
     case 6:
-    {
-        save_student();
-        break;
-    }
-    case 7:
-    {
-        load_student();
-        break;
-    }
-    case 8:
     {
       cout<<"--------------------------------------------------------------------------------------------"<<endl;
       cout<<"===============================STUDENT MANAGMENT SYSTEM====================================="<<endl;
@@ -138,8 +141,6 @@ int main()
       cout<<"3--> SEARCHING STUDENT"<<endl;
       cout<<"4--> UPDATE STUDENT"<<endl;
       cout<<"5--> DELETE STUDENT"<<endl;
-      cout<<"6--> SAVE STUDENT DATA"<<endl;
-      cout<<"7--> LOAD STUDENT DATA"<<endl;
       cout<<"8--> DISPLAY MENU AGAIN"<<endl;
       cout<<"0--> EXIT"<<endl;  
         break;
