@@ -16,7 +16,23 @@ void update_student()
 
 void display_students()
 {
-    cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
+    fstream file;
+     string info;
+
+     file.open("document.txt");
+     if(file.is_open())
+     {
+        string line;
+        while (getline(file,line))
+        {
+            cout<<line<<endl;
+        }
+        file.close();
+        cout<<"`````````````````````````````````````````````````````````````````"<<endl;
+     }
+     else{
+        cout<<"ERROR IN OPENING FILE"<<endl;
+     }
 }
 
 void search_student()
