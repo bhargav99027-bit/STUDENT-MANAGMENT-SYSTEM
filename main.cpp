@@ -21,7 +21,29 @@ void display_students()
 
 void search_student()
 {
-  cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
+     fstream file;
+     string info;
+     file.open("document.txt");
+     if(file.is_open())
+     {
+        cout<<"ENTER THE STUDENT INFO : ";
+        cin.ignore();
+        getline(cin,info);
+        string line;
+        while (getline(file,line))
+        {
+            if(line.find(info)<info.length() && !info.empty())
+            {
+                cout<<line<<endl;
+            }
+            
+        }
+        file.close();
+     }
+     else
+     {
+        cout<<"ERROR IN OPENING FILE"<<endl;
+     }
 }
 
 class Student {
