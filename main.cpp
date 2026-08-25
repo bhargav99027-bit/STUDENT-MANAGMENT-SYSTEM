@@ -6,7 +6,40 @@ using namespace std;
 
 void delete_student()
 {
-     cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
+     
+     string target;
+     ofstream TempFile;
+     ifstream DocumentFile;
+     TempFile.open("temp.txt");
+     DocumentFile.open("document.txt");
+     if(TempFile.is_open() && DocumentFile.is_open())
+     {
+       cout<<"ENTER THE STUDENT USN TO DELETE : ";
+       cin.ignore();
+       getline(cin,target);
+       string line;
+       while (getline(DocumentFile,line))
+       {
+         if( (line.find(target)<line.length()) && !line.empty())
+         {
+             cout<<"DELETED THE DATA OF THE STUDENT WHO'S USN IS :"<<target<<endl;
+         }
+         else
+         {
+            TempFile<<line<<endl;
+         }
+
+       }
+       TempFile.close();
+       DocumentFile.close();
+       remove("document.txt");
+       rename("temp.txt","document.txt");
+       
+     }
+     else
+     {
+        cout<<"ERROR IN OPENING FILES"<<endl;
+     }
 }
 
 void update_student()
@@ -18,7 +51,7 @@ void update_student()
      DocumentFile.open("document.txt");
      if(TempFile.is_open() && DocumentFile.is_open())
      {
-       cout<<"ENTER THE STUDENT USN TO UPDATE"<<endl;
+       cout<<"ENTER THE STUDENT USN TO UPDATE : ";
        cin.ignore();
        getline(cin,target);
        string line;
@@ -108,7 +141,7 @@ void search_student()
      file.open("document.txt");
      if(file.is_open())
      {
-        cout<<"ENTER THE STUDENT INFO : ";
+        cout<<"ENTER THE STUDENT USN : ";
         cin.ignore();
         getline(cin,info);
         string line;
@@ -258,7 +291,7 @@ int main()
       cout<<"3--> SEARCHING STUDENT"<<endl;
       cout<<"4--> UPDATE STUDENT"<<endl;
       cout<<"5--> DELETE STUDENT"<<endl;
-      cout<<"8--> DISPLAY MENU AGAIN"<<endl;
+      cout<<"6--> DISPLAY MENU AGAIN"<<endl;
       cout<<"0--> EXIT"<<endl;  
         break;
     }
