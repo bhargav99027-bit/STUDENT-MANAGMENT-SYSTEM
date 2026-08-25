@@ -11,7 +11,73 @@ void delete_student()
 
 void update_student()
 {
-     cout<<"DEVELOPMENT UNDER PROCESS"<<endl;
+     string target;
+     ofstream TempFile;
+     ifstream DocumentFile;
+     TempFile.open("temp.txt");
+     DocumentFile.open("document.txt");
+     if(TempFile.is_open() && DocumentFile.is_open())
+     {
+       cout<<"ENTER THE STUDENT USN TO UPDATE"<<endl;
+       cin.ignore();
+       getline(cin,target);
+       string line;
+       while (getline(DocumentFile,line))
+       {
+         if( (line.find(target)<line.length()) && !line.empty())
+         {
+             string usn;
+             string name;
+             string dep;
+             string dob;
+             int age;
+             int sem;
+             float CGPA;
+
+             cout << "ENTER THE UDATED USN OF THE STUDENT: ";
+             getline(cin, usn);
+
+             cout << "ENTER THE UDATED NAME OF THE STUDENT: ";
+             getline(cin, name);
+
+             cout << "ENTER THE UDATED DEPARTMENT OF THE STUDENT: ";
+             getline(cin, dep);
+
+             cout << "ENTER THE UDATED AGE OF STUDENT: ";
+             cin >> age;
+
+             cout << "ENTER THE UDATED DATE OF BIRTH OF THE (DD-MM-YYYY) OF THE STUDENT: ";
+             cin.ignore();
+             getline(cin, dob);
+
+             cout << "ENTER THE UDATED SEMESTER: ";
+             cin >> sem;
+
+             cout << "ENTER THE UDATED CGPA OF STUDENT: ";
+             cin >> CGPA;
+
+             //copying the updated data to the file
+             TempFile<< usn << "  " <<name << "      " << dep << "        " << age << "  "<< dob << "   " << sem << "   " << CGPA << "\n";
+             cout << endl;
+             cout<<"STUDENT DATA UPDATED SUCCESSFULLY !"<<endl;
+
+         }
+         else
+         {
+            TempFile<<line<<endl;
+         }
+
+       }
+       TempFile.close();
+       DocumentFile.close();
+       remove("document.txt");
+       rename("temp.txt","document.txt");
+       
+     }
+     else
+     {
+        cout<<"ERROR IN OPENING FILES"<<endl;
+     }
 }
 
 void display_students()
@@ -148,11 +214,11 @@ int main()
         if (file.is_open()) 
         {
            student1.saveToFile(file);
-           cout << "Student data saved successfully!" << endl;
+           cout << "STUDENT DATA SAVED SUCCESSFULLY !"<< endl;
         } 
         else 
         {
-           cout << "Error opening file." << endl;
+           cout << "ERROR IN OPENING FILE." << endl;
         }
         file.close();
         break;
