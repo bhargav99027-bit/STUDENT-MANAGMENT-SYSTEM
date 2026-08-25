@@ -73,6 +73,19 @@ private:
     float CGPA;
 
 public:
+
+    Student()
+    {
+        usn="";
+        name="";
+        dep="";
+        dob="00-00-0000";
+        age=0;
+        sem=0;
+        CGPA=0.0f;
+    }
+
+
     void getInfo() 
     {
         cout << "ENTER THE USN OF THE STUDENT: ";
